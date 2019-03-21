@@ -17,6 +17,7 @@ defmodule Tertia.UserChannelAssoc do
     struct
     |> cast(params, @required ++ @optional)
     |> validate_required(@required)
+    |> validate_inclusion(:type, ~w(personal group))
   end
 
   # def validate_last_read_inserted_at(changeset, struct) do
