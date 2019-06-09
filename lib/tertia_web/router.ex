@@ -14,4 +14,6 @@ defmodule TertiaWeb.Router do
 
     forward "/api", Absinthe.Plug, schema: TertiaWeb.Schema
   end
+
+  get "/confirm_signup", TertiaWeb.SignupController, :signup
 end

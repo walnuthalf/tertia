@@ -5,8 +5,8 @@ defmodule Tertia.Repo.Migrations.CreateUsers do
     create table(:users, primary_key: false) do
       add :id, :binary_id, primary_key: true
       add :name, :string, null: false
-      add :username, :string, null: false
-      add :email, :string, null: false
+      add :username, :string
+      add :email, :string
       add :public_key, :binary, null: false
       add :encrypted_private_key, :binary, null: false
       add :token, :string

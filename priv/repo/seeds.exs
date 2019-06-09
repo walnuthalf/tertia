@@ -11,6 +11,7 @@
 # and so on) as they will fail if something goes wrong.
 terry =
   Tertia.UserCommands.add_user!(%{
+    status: "active",
     name: "Terry",
     username: "terry",
     email: "terry@email.com",
@@ -20,6 +21,7 @@ terry =
 
 steve =
   Tertia.UserCommands.add_user!(%{
+    status: "active",
     name: "Steve",
     username: "steve",
     email: "steve@email.com",

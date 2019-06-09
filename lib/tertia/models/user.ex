@@ -4,15 +4,17 @@ defmodule Tertia.User do
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @timestamps_opts [type: :utc_datetime_usec]
-  @required [:name, :username, :email, :public_key, :encrypted_private_key]
-  @optional [:location, :token]
+  @required [:name, :username, :email, :public_key, :encrypted_private_key, :status]
+  @optional [:location, :token, :signup_hash]
 
   schema("users") do
     field :name, :string, null: false
+    field :status, :string, null: false
+    field :signup_hash, :string
     # unique username
-    field :username, :string, null: false
+    field :username, :string
     # unique email
-    field :email, :string, null: false
+    field :email, :string
     field :public_key, :binary, null: false
     field :encrypted_private_key, :binary, null: false
     field :token, :string

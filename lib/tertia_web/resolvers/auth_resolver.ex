@@ -20,4 +20,18 @@ defmodule TertiaWeb.AuthResolver do
         {:error, "Authentication failed"}
     end
   end
+
+  def signup(_, %{email: email} = params, _) do
+    hash = Ecto.UUID.generate()
+    params = Map.merge(params, %{status: "signup", signup_hash: hash})
+
+    case Tertia.UserCommands.add_user(params) do
+      {:ok, _} ->
+        TertiaWeb.EmailSender.send_signup(email, hash)
+        {:ok, true}
+
+      _ ->
+        {:error, "Signup failure"}
+    end
+  end
 end

@@ -6,6 +6,7 @@ defmodule Tertia.SampleValues do
     {public_key, encrypted_priv} = Tertia.Utils.Crypto.gen_auth_pair(@dummy_password)
 
     %{
+      status: "active",
       name: "Terry",
       username: "terry",
       email: "terry@email.com",

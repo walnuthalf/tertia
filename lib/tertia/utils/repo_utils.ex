@@ -20,8 +20,7 @@ defmodule Tertia.Utils.RepoUtils do
   end
 
   def get_fields_by(model, params, fields) do
-    from(model, where: ^params, select: ^fields)
-    |> Repo.one()
+    from(model, where: ^params, select: ^fields) |> Repo.one()
   end
 
   def within(query, point, radius_in_m) do

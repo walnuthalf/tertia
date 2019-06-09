@@ -99,6 +99,14 @@ defmodule TertiaWeb.Schema do
       resolve(&AuthResolver.login/3)
     end
 
+    field :signup, :boolean do
+      arg(:email, non_null(:string))
+      arg(:password, non_null(:string))
+      arg(:name, non_null(:string))
+
+      resolve(&AuthResolver.signup/3)
+    end
+
     @desc "Update user's location"
     field :update_location, :boolean do
       arg(:location, non_null(:location))
